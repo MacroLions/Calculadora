@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -60,11 +61,51 @@ public class Aritmetica extends JPanel{
             @Override
             public void actionPerformed(ActionEvent arg0){
                 Operacion suma= facAri.CrearAritmetica(1);
-                int a = textF1.getText().hashCode();
-                int b = textF2.getText().hashCode();
-               
+                
+                int a = Integer.parseInt(textF1.getText());
+                int b = Integer.parseInt(textF2.getText());
                 int c = suma.Calcular(a,b);
-                textF3.setText("ww");
+                
+                textF3.setText(String.valueOf(c));
+            }
+        });
+        
+        button2.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                Operacion resta= facAri.CrearAritmetica(2);
+                
+                int a = Integer.parseInt(textF1.getText());
+                int b = Integer.parseInt(textF2.getText());
+                int c = resta.Calcular(a,b);
+                
+                textF3.setText(String.valueOf(c));
+            }
+        });
+        
+        button3.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                Operacion mult= facAri.CrearAritmetica(3);
+                
+                int a = Integer.parseInt(textF1.getText());
+                int b = Integer.parseInt(textF2.getText());
+                int c = mult.Calcular(a,b);
+                
+                textF3.setText(String.valueOf(c));
+            }
+        });
+        
+        button.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                Operacion div= facAri.CrearAritmetica(4);
+                
+                int a = Integer.parseInt(textF1.getText());
+                int b = Integer.parseInt(textF2.getText());
+                int c = div.Calcular(a,b);
+                
+                textF3.setText(String.valueOf(c));
             }
         });
         
