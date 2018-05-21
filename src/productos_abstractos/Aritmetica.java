@@ -96,7 +96,7 @@ public class Aritmetica extends JPanel{
             }
         });
         
-        button.addActionListener(new ActionListener(){
+        button4.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0){
                 Operacion div= facAri.CrearAritmetica(4);
