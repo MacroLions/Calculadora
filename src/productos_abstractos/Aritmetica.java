@@ -5,8 +5,10 @@
  */
 package productos_abstractos;
 
+import fabricas_abstractas.AbstractFactory;
 import fabricas_concretas.FactoryAritmetica;
 import fabricas_abstractas.Operacion;
+import fabricas_abstractas.Transformar;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -22,7 +24,7 @@ import javax.swing.JLabel;
  * @author LN710Q
  */
 public class Aritmetica extends JPanel{
-    FactoryAritmetica facAri = new FactoryAritmetica();
+    AbstractFactory fabricaGeneral = new AbstractFactory();
     
 
     public int WIDTH = 500, widthTF=120, widthB=50;
@@ -88,7 +90,7 @@ public class Aritmetica extends JPanel{
             @Override
             public void actionPerformed(ActionEvent arg0){
                 try{
-                    Operacion suma= facAri.CrearAritmetica(1);
+                    Operacion suma= fabricaGeneral.NuevaFabrica(1).CrearAritmetica(1);
                     Label3.setText("+");
                     int a = Integer.parseInt(textF1.getText());
                     int b = Integer.parseInt(textF2.getText());
@@ -105,7 +107,7 @@ public class Aritmetica extends JPanel{
             @Override
             public void actionPerformed(ActionEvent arg0){
                 try{
-                    Operacion resta= facAri.CrearAritmetica(2);
+                    Operacion resta= fabricaGeneral.NuevaFabrica(1).CrearAritmetica(2);
                     Label3.setText("-");
                     int a = Integer.parseInt(textF1.getText());
                     int b = Integer.parseInt(textF2.getText());
@@ -122,7 +124,7 @@ public class Aritmetica extends JPanel{
             @Override
             public void actionPerformed(ActionEvent arg0){
                 try{
-                    Operacion mult= facAri.CrearAritmetica(3);
+                    Operacion mult= fabricaGeneral.NuevaFabrica(1).CrearAritmetica(3);
                     Label3.setText("x");
                     int a = Integer.parseInt(textF1.getText());
                     int b = Integer.parseInt(textF2.getText());
@@ -139,7 +141,7 @@ public class Aritmetica extends JPanel{
             @Override
             public void actionPerformed(ActionEvent arg0){
                 try{
-                    Operacion div= facAri.CrearAritmetica(4);
+                    Operacion div= fabricaGeneral.NuevaFabrica(1).CrearAritmetica(4);
                     Label3.setText("/");
                     int a = Integer.parseInt(textF1.getText());
                     int b = Integer.parseInt(textF2.getText());
@@ -156,16 +158,13 @@ public class Aritmetica extends JPanel{
             @Override
             public void actionPerformed(ActionEvent arg0){
                 try{
-                    Operacion div= facAri.CrearAritmetica(4);
-                    Label3.setText("/");
-                    int a = Integer.parseInt(textF1.getText());
-                    int b = Integer.parseInt(textF2.getText());
-                    int c = div.Calcular(a,b);
-                    double k=2.44;
-                    Double.toString(k);
-                    textF3.setText(String.valueOf(c));
+                    Transformar binario= fabricaGeneral.NuevaFabrica(2).CrearTransformar(1);
+                    int a = Integer.parseInt(textF4.getText());
+                    int c = binario.Calcular(a);
+
+                    textF5.setText(String.valueOf(c));
                 }catch(Exception ex){
-                    System.out.println("Ingrese 2 números");
+                    System.out.println("Ingrese 1 número");
                 }
             }
         });
