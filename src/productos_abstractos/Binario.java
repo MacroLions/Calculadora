@@ -16,12 +16,16 @@ public class Binario implements Transformar {
     @Override
     public int Calcular(int a) {
         int binario=0;
-        while(a>2){
-            int cons=1;
+        int cons=1;
+        while(a>=2){
             int num= a%2;
+            System.out.println(num);
             a=a/2;
-            binario=num*cons;
-            cons=(cons*10);
+            binario=binario + num*cons;
+            cons=cons*10;
+            if(a==1){
+                binario = binario + 1*cons;
+            }
         }
         return binario;
     }
