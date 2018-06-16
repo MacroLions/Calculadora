@@ -19,7 +19,6 @@ public class Binario implements Transformar {
         int cons=1;
         while(a>=2){
             int num= a%2;
-            System.out.println(num);
             a=a/2;
             binario=binario + num*cons;
             cons=cons*10;
